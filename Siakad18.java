@@ -7,10 +7,9 @@ public class Siakad18 {
         Scanner sc = new Scanner(System.in);
         
         // variabel
-        String nama, nim;
-        char kelas;
+        String nama, nim, kelas;
         byte absen;
-        double nilaiKuis, nilaiTugas, nilaiUjian, nilaiAkhir;
+        double nilaiKuis, nilaiTugas, nilaiUTS, nilaiUAS, nilaiAkhir;
 
         // data mahasiswa
         System.out.print("Masukkan Nama: ");
@@ -20,7 +19,7 @@ public class Siakad18 {
         nim = sc.nextLine();
 
         System.out.print("Masukkan Kelas: ");
-        kelas = sc.next().charAt(0);
+        kelas = sc.nextLine();
 
         System.out.print("Masukkan Nomor Absen: ");
         absen = sc.nextByte();
@@ -32,11 +31,14 @@ public class Siakad18 {
         System.out.print("Masukkan Nilai Tugas: ");
         nilaiTugas = sc.nextDouble();
 
-        System.out.print("Masukkan Nilai Ujian: ");
-        nilaiUjian = sc.nextDouble();
+        System.out.print("Masukkan Nilai UTS: ");
+        nilaiUTS = sc.nextDouble();
 
-        // hitung nilai akhir
-        nilaiAkhir = (nilaiKuis + nilaiTugas + nilaiUjian) / 3;
+        System.out.print("Masukkan Nilai UAS: ");
+        nilaiUAS = sc.nextDouble();
+
+        // hitung nilai akhir berdasarkan bobot yang diberikan
+        nilaiAkhir = (nilaiKuis * 0.20) + (nilaiTugas * 0.15) + (nilaiUTS * 0.30) + (nilaiUAS * 0.35);
 
         // tampilan 
         System.out.println("Nama: " + nama);
@@ -46,7 +48,6 @@ public class Siakad18 {
         System.out.println("Mahasiswa dengan Nama " + nama + " ( NIM "+ nim + ")" + " kelas " + kelas + " absen " + absen);
         System.out.println("Nilai Akhir: " + nilaiAkhir);
 
-        
         sc.close();
     }
 }
